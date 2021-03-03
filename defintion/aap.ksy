@@ -27,6 +27,7 @@ seq:
       cases:
         0x00: connect
         0x01: connect_response
+        0x04: command
 types:
   connect:
     doc: Initial package by master
@@ -49,5 +50,7 @@ types:
         type: u2
       - id: features
         size-eos: true
-        
+  
+  command:
+    doc: The relevant exchange in the AAP protocol
 
