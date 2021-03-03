@@ -29,6 +29,8 @@ class FileCompleter:
         for f in folder.glob("**/*"):
             if (m := re.match("^(.+)-\d+$", f.stem)):
                 filenames.add(m.group(1))
+            elif f.is_dir():
+                filenames.add(f.stem)
         self.options = sorted(filenames)
         self.matches = []
 
@@ -47,6 +49,8 @@ class FileCompleter:
 readline.set_completer(FileCompleter(folder).complete)
 readline.set_auto_history(False)
 readline.parse_and_bind('tab: complete')
+
+readline.set_completer_delims("/")
 
 filename = input("Filename\n> ").strip()
 filename = get_free_filename(filename)
@@ -80,8 +84,12 @@ print("-"*20)
 print(f"Storing '{filename}' with data:")
 width = 20
 print("-"*(width*3))
+
 for i in range(0, len(data_b), width):
     print(" ".join(f"{d:02X}" for d in data_b[i:i+width]))
+
+print("Length:", len(data_b))
+
 print("-"*(width*3))
 print(f"Description")
 print('\n'.join(f"| {a}" for a in description.split("\n")))
