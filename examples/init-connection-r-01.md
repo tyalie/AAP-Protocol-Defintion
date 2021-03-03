@@ -1,4 +1,4 @@
-Init connection (incomming)
+Initial connection - receive (macOS 11)
 ```
 Connect Response - ServiceID: 4 status:0
 Major: 0001
