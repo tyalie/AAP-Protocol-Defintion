@@ -12,4 +12,13 @@ An incredible resource is the PacketLogger included in the additional developer 
 
 I'm personally using macOS Mojave together with the PacketLogger 6.0.9. The parsing is incomplete, but it provides a good foundation.
 
+### Creating examples
+I found it helpful to split the whole communication into tiny packages containing a few informations.See can be found in the `examples` folder. The `.data` file is the raw stream and the `md` the corresponding description.
+
+These files can be created using `create-examples.py` by following:
+
+1. enter the file name (root is in `examples` folder). Tab completion works
+2. the raw data as a hex stream (e.g. `020004000000`)
+3. the description - edited using your `editor` command
+
 
